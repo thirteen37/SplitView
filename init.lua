@@ -248,6 +248,8 @@ end
 function obj:performSplit(thiswin,otherwin)
    if not thiswin or not otherwin or thiswin==otherwin then return end
    local clickPoint=thiswin:zoomButtonRect()
+   clickPoint.x = clickPoint.x + clickPoint.w / 2
+   clickPoint.y = clickPoint.y + clickPoint.h / 2
    hsee.newMouseEvent(hsee.types.leftMouseDown, clickPoint):post()
    
    zoom=ax.applicationElement(thiswin:application()):elementAtPosition(clickPoint)
